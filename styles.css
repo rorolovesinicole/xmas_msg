@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@font-face {
+    font-family: 'Merry'; 
+    src: url('./Mr.ttf') format('truetype'); 
+    font-weight: normal; 
+    font-style: normal; 
+}
+
+body {
+    background-image: url("./Re.png");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    flex-direction: column;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    html, body {
+        overflow: hidden;
+        height: 100%;
+    }
+}
+
+.christmas-message {
+    font-size: 65px;
+    font-family: "Merry";
+    color: rgb(255, 162, 162);
+    font-weight: bold;
+    text-align: center;
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    animation: glow 1.5s ease-in-out infinite;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    transition: opacity 1s, visibility 1s;
+    display: block;
+    line-height: 1; 
+  }
+  
+  @keyframes glow {
+    20% {
+      text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff;
+    }
+    50% {
+      text-shadow: 0 0 10px #ffffff, 0 0 15px #f7b3b3, 0 0 30px #ffffff;
+    }
+    80% {
+      text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #f7b3b3;
+    }
+  }
+
+.container {
+    text-align: center;
+    position: absolute; 
+    bottom: 30px; 
+    width: 100%;  
+    display: flex;
+    justify-content: center; 
+}
+
+#showButton {
+    background-color: #ffffff00; 
+    font-family:'Times New Roman', Times, serif;
+    color: white; 
+    border: none; 
+    border-radius: 8px;
+    cursor: pointer; 
+    box-shadow: 0 4px #ffffff;
+    transition: all 0.3s ease; 
+}
+#showButton img {
+    width: 100%;  
+    height: 40px;
+}
+#showButton:hover {
+    background-color: #a04545; 
+}
+
+#showButton:active {
+    box-shadow: 0 2px #666; 
+    transform: translateY(4px); 
+}
+
+
+@media (max-width: 600px) {
+    #showButton {
+        bottom: 80px; 
+    }
+}
+.hidden {
+    display: none;
+}
+
+#guideInfo.show {
+    opacity: 1; 
+    visibility: visible;  
+    transition: opacity 0.5s ease, visibility 0s 0s;
+}
+
+
+#guideInfo h2, #guideInfo p {
+    margin: 10px 0;  
+}
+
+.close-btn {
+    position: fixed;
+    top: 0; 
+    right: 0;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    color: black;
+    cursor: pointer;
+    z-index: 1000; 
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+::selection {
+    background: transparent;
+}
+
+h4 {
+    font-size: 26px;
+    line-height: 1px;
+    font-family: 'Amatic SC', cursive !important;
+    font-weight: bold;
+}
+
+.color {
+    color: #9c2f22
+}
+
+
+.card {
+    color: #013243;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 400px;
+    letter-spacing: 1px;
+    background: #e0e1dc;
+    transform-style: preserve-3d;
+    font-family: 'Times New Roman', Times, serif;
+    transform: translate(-50%, -50%) perspective(2000px);
+    box-shadow: inset 300px 0 50px rgba(0, 0, 0, .5), 20px 0 60px rgba(0, 0, 0, .5);
+    transition: 1s;
+}
+
+.card:hover {
+    transform: translate(-50%, -50%) perspective(2000px) rotate(15deg) scale(1.2);
+    box-shadow: inset 20px 0 50px rgba(0, 0, 0, .5), 0 10px 100px rgba(0, 0, 0, .5);
+}
+
+.card:before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #BAC1BA;
+    transform-origin: bottom;
+    transform: skewX(-45deg);
+}
+
+.card:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -5px;
+    width: 5px;
+    height: 100%;
+    background: #92A29C;
+    transform-origin: left;
+    transform: skewY(-45deg);
+}
+
+.card .imgBox {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-origin: left;
+    transition: .7s;
+}
+
+.card .bark {
+    position: absolute;
+    background: #e0e1dc;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: .7s;
+}
+
+.card .imgBox img {
+    min-width: 250px;
+    max-height: 400px;
+}
+
+.card:hover .imgBox {
+    transform: rotateY(-135deg);
+}
+
+.card:hover .bark {
+    opacity: 1;
+    transition: .6s;
+    box-shadow: 300px 200px 100px rgba(0, 0, 0, .4) inset;
+}
+
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    z-index: -1;
+    margin-top: 10px;  /* Reduced from 20px to move everything up */
+    width: 100%;
+}
+
+.card .details p {
+    font-size: 11px;  /* Further reduced from 13px for better fit */
+    line-height: 1.2;  /* Slightly tightened line height */
+    transform: rotate(-10deg);
+    padding: 0 0 0 15px;
+    margin-bottom: 6px;  /* Reduced spacing between paragraphs */
+    max-width: 260px;
+}
+
+.card .details h4 {
+    font-size: 20px;  /* Reduced header size */
+    text-align: center;
+    margin-bottom: 12px;  /* Reduced space after header */
+    line-height: 1;  /* Tightened header line height */
+    margin-top: -5px;  /* Moved header up slightly */
+}
+
+.text-right {
+    text-align: right;
+    margin-top: 8px;  /* Reduced space before signature */
+}
+
+.text-right p {
+    margin-bottom: 1px !important;  /* Minimal spacing in signature */
+    font-size: 10px;  /* Smaller signature text */
+    line-height: 1;  /* Tighter signature spacing */
+}
+
+/* Additional tweak to ensure proper text wrapping */
+.card .details {
+    overflow: hidden;  /* Prevent any potential overflow */
+}
+
+#snow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px; 
+    color: white;
+    user-select: none;
+    animation: snow-fall linear infinite;
+    opacity: 0;
+    animation: snow-fall 10s linear infinite, fadeIn 1s forwards;
+}
+
+@keyframes snow-fall {
+    0% {
+        transform: translateX(var(--start-x)) translateY(-10px);
+    }
+    100% {
+        transform: translateX(var(--end-x)) translateY(100vh);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.snow-cover.blamed {
+    background-color: #555;
+    color: #ddd;
+}
+
+header.blamed, footer.blamed {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
